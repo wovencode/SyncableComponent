@@ -19,7 +19,6 @@ namespace wovencode {
 	{
 		
 		[HideInInspector]public string title;
-		[HideInInspector]public byte state = 0;
 		[HideInInspector]public long timer = 0;
 	
 		/*
