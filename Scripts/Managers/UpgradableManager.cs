@@ -43,8 +43,8 @@ namespace wovencode {
 		public bool CanUpgradeLevel()
 		{
 			return (level < maxLevel
-#if WOCO_VCURRENCY
-					&& GetComponentInParent<VirtualCurrencyManager>().CanPayCost(upgradeCost, level)
+#if WOCO_CURRENCY
+					&& GetComponentInParent<CurrencyManager>().CanPayCost(upgradeCost, level)
 #endif
 					);
 		}
@@ -61,8 +61,8 @@ namespace wovencode {
 		[Server]
 		protected virtual void UpgradeLevel()
 		{
-#if WOCO_VCURRENCY
-			GetComponentInParent<VirtualCurrencyManager>().PayCost(upgradeCost, level);
+#if WOCO_CURRENCY
+			GetComponentInParent<CurrencyManager>().PayCost(upgradeCost, level);
 #endif
 			level++;
 		}
