@@ -24,6 +24,8 @@ namespace wovencode {
 		public float refreshInterval = 1f;
 		float _cacheTimer = 0;
 		
+		public static GameObject localPlayer => ClientScene.localPlayer != null ? ClientScene.localPlayer.gameObject : null;
+		
 		protected bool Check => Time.time > _cacheTimer;
 		
 		// -------------------------------------------------------------------------------
