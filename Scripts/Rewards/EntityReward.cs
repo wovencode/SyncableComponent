@@ -1,4 +1,8 @@
-﻿
+﻿// =======================================================================================
+// EntityReward
+// by Weaver (Fhiz)
+// MIT licensed
+// =======================================================================================
 
 using System;
 using System.Text;
@@ -7,16 +11,27 @@ using wovencode;
 
 namespace wovencode {
 	
+	// ===================================================================================
+	// EntityReward
+	// ===================================================================================
 	[System.Serializable]
 	public abstract partial class EntityReward : BaseReward
 	{
-	
 		
-		public int minLevel;
-		public int maxLevel;
+		[SerializeField]protected int minLevel;
+		[SerializeField]protected int maxLevel;
 	
-	
+		public int GetLevel
+		{
+			get
+			{
+				if (maxLevel <= 0) return minLevel;
+				return UnityEngine.Random.Range(minLevel, maxLevel);
+			}
+		}
 	
 	}
 
 }
+
+// =======================================================================================

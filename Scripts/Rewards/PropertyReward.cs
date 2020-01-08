@@ -1,4 +1,9 @@
-﻿
+﻿// =======================================================================================
+// PropertyReward
+// by Weaver (Fhiz)
+// MIT licensed
+// =======================================================================================
+
 using System;
 using System.Text;
 using UnityEngine;
@@ -6,16 +11,27 @@ using wovencode;
 
 namespace wovencode {
 	
+	// ===================================================================================
+	// PropertyReward
+	// ===================================================================================
 	[System.Serializable]
 	public abstract partial class PropertyReward : BaseReward
 	{
 		
-		
-		public int minAmount;
-		public int maxAmount;
+		[SerializeField]protected int minAmount;
+		[SerializeField]protected int maxAmount;
 	
-	
+		public int GetAmount
+		{
+			get
+			{
+				if (maxAmount <= 0) return minAmount;
+				return UnityEngine.Random.Range(minAmount, maxAmount);
+			}
+		}
 	
 	}
 
 }
+
+// =======================================================================================
