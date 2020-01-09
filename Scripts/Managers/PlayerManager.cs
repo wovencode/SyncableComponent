@@ -1,5 +1,5 @@
 ﻿// =======================================================================================
-// AccountManager
+// PlayerManager
 // by Weaver (Fhiz)
 // MIT licensed
 //
@@ -16,11 +16,11 @@ using wovencode;
 namespace wovencode {
 	
 	// ===================================================================================
-	// AccountManager
+	// PlayerManager
 	// ===================================================================================
 	[DisallowMultipleComponent]
 	[System.Serializable]
-	public partial class AccountManager : UpgradableManager
+	public partial class PlayerManager : UpgradableManager
 	{
 	
     	
