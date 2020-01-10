@@ -50,21 +50,21 @@ namespace wovencode {
         }
 		
 		// -------------------------------------------------------------------------------
-		// 
+		// UpdateServer
 		// -------------------------------------------------------------------------------
 		[Server]
 		protected override void UpdateServer()
 		{
-			
+			this.InvokeInstanceDevExtMethods("UpdateServer");
 		}
 		
 		// -------------------------------------------------------------------------------
-		// 
+		// UpdateClient
 		// -------------------------------------------------------------------------------
 		[Client]
 		protected override void UpdateClient()
 		{
-			
+			this.InvokeInstanceDevExtMethods("UpdateClient");
 		}
 		
 		// -------------------------------------------------------------------------------
