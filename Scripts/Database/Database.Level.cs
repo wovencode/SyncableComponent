@@ -67,7 +67,7 @@ namespace wovencode
 		{
 		
 			// you should delete all data of this player first, to prevent duplicates
-	   		DeleteData_Currency(player.name);
+	   		DeleteData_Level(player.name);
 	   		
 	   		Component[] components = player.GetComponents<UpgradableManager>();
 	   		

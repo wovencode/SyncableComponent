@@ -24,8 +24,11 @@ namespace wovencode {
 		public int level = 1;
 		public int maxLevel = 3;
 		public LinearGrowthInt capacity = new LinearGrowthInt{baseValue=99, bonusPerLevel=0};
+#if WOCO_CURRENCY
 		public LevelCurrencyCost[] upgradeCost;
+#endif
 		
+		// -------------------------------------------------------------------------------
 		public int GetCapacity => capacity.Get(level);
 		
 		// -------------------------------------------------------------------------------
