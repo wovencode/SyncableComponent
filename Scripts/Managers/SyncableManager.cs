@@ -26,11 +26,16 @@ namespace wovencode {
 		
 		public static GameObject localPlayer => ClientScene.localPlayer != null ? ClientScene.localPlayer.gameObject : null;
 		
-		protected bool Check => Time.time > _cacheTimer;
-		
 		// -------------------------------------------------------------------------------
+		// Start
 		// -------------------------------------------------------------------------------
 		protected virtual void Start() {}
+		
+		// -------------------------------------------------------------------------------
+		// Check
+		// Used to throttle calls to "Update" (similar to how we do it in "Wovencore UI")
+		// -------------------------------------------------------------------------------
+		protected bool Check => Time.time > _cacheTimer;
 		
 		// -------------------------------------------------------------------------------
 		// Refresh
