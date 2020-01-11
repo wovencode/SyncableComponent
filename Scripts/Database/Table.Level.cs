@@ -12,15 +12,23 @@ namespace wovencode
 {
 
 	// ===================================================================================
-	// TableLevel
+	// DatabaseManager
 	// ===================================================================================
-	partial class TableLevel
+	public partial class DatabaseManager
 	{
-		public string 	owner 		{ get; set; }
-		public string 	name 		{ get; set; }
-		public int 		level 		{ get; set; }
+	
+		// -------------------------------------------------------------------------------
+		// TableExample
+		// -------------------------------------------------------------------------------
+		partial class TableLevel
+		{
+			public string 	owner 		{ get; set; }
+			public string 	name 		{ get; set; }
+			public int 		level 		{ get; set; }
+		}
+	
 	}
-		
+	
 	// -------------------------------------------------------------------------------
 	
 }
