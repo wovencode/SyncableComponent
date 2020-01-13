@@ -1,10 +1,7 @@
 // =======================================================================================
-// ISyncableStruct
+// Wovencore
 // by Weaver (Fhiz)
 // MIT licensed
-//
-// A simple interface shared by all Syncable Managers
-//
 // =======================================================================================
 
 using UnityEngine;
@@ -15,11 +12,9 @@ namespace wovencode
 	// ===================================================================================
 	// 
 	// ===================================================================================
-	public interface ISyncableManager<T>
+	public interface ISyncableComponent<T>
 	{
-		
-		
-		
+
 	}
 		
 }

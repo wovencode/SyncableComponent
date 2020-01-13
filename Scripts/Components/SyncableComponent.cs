@@ -1,5 +1,5 @@
 // =======================================================================================
-// SyncableManager
+// Wovencore
 // by Weaver (Fhiz)
 // MIT licensed
 // =======================================================================================
@@ -13,10 +13,10 @@ using wovencode;
 namespace wovencode {
 
 	// ===================================================================================
-	// SyncableManager
+	// SyncableComponent
 	// ===================================================================================
 	[System.Serializable]
-	public abstract partial class SyncableManager : NetworkBehaviour
+	public abstract partial class SyncableComponent : NetworkBehaviour
 	{
 	
 		[Header("Caching")]

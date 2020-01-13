@@ -40,16 +40,16 @@ namespace wovencode
 		void LoadDataWithPriority_Level(GameObject player)
 		{
 			
-			Component[] components = player.GetComponents<UpgradableManager>();
+			Component[] components = player.GetComponents<UpgradableComponent>();
 			
 	   		foreach (TablePlayerLevel row in Query<TablePlayerLevel>("SELECT * FROM TablePlayerLevel WHERE owner=?", player.name))
 			{
 				foreach (Component component in components)
 	   			{
-	   				if (component is UpgradableManager)
+	   				if (component is UpgradableComponent)
 	   				{
 	   				
-	   					UpgradableManager manager = (UpgradableManager)component;
+	   					UpgradableComponent manager = (UpgradableComponent)component;
 	   				
 	   					if (manager.GetType().ToString() == row.name)
 	   						manager.level = row.level;
@@ -69,14 +69,14 @@ namespace wovencode
 			// you should delete all data of this player first, to prevent duplicates
 	   		DeleteData_Level(player.name);
 	   		
-	   		Component[] components = player.GetComponents<UpgradableManager>();
+	   		Component[] components = player.GetComponents<UpgradableComponent>();
 	   		
 	   		foreach (Component component in components)
 	   		{
-	   			if (component is UpgradableManager)
+	   			if (component is UpgradableComponent)
 	   			{
 	   			
-	   				UpgradableManager manager = (UpgradableManager)component;
+	   				UpgradableComponent manager = (UpgradableComponent)component;
 	   			
 	   				InsertOrReplace(new TablePlayerLevel{
                 		owner 			= player.name,

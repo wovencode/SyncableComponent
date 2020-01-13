@@ -1,5 +1,5 @@
 ﻿// =======================================================================================
-// UpgradableManager
+// Wovencore
 // by Weaver (Fhiz)
 // MIT licensed
 // =======================================================================================
@@ -13,10 +13,10 @@ using wovencode;
 namespace wovencode {
 
 	// ===================================================================================
-	// UpgradableManager
+	// UpgradableComponent
 	// ===================================================================================
 	[System.Serializable]
-	public abstract partial class UpgradableManager : SyncableManager
+	public abstract partial class UpgradableComponent : SyncableComponent
 	{
 	
 		[Header("Level")]
@@ -28,6 +28,10 @@ namespace wovencode {
 		public LevelCurrencyCost[] upgradeCost;
 #endif
 		
+		// -------------------------------------------------------------------------------
+		// GetCapacity
+		// How many syncData entries can this component hold currently? That could be
+		// inventory items, pieces of equipment, currencies, attributes etc.
 		// -------------------------------------------------------------------------------
 		public int GetCapacity => capacity.Get(level);
 		
@@ -53,7 +57,7 @@ namespace wovencode {
 		{
 			return (level < maxLevel
 #if WOCO_CURRENCY
-					&& GetComponentInParent<PlayerCurrencyManager>().CanPayCost(upgradeCost, level)
+					&& GetComponentInParent<PlayerCurrencyComponent>().CanPayCost(upgradeCost, level)
 #endif
 					);
 		}
@@ -71,7 +75,7 @@ namespace wovencode {
 		protected virtual void UpgradeLevel()
 		{
 #if WOCO_CURRENCY
-			GetComponentInParent<PlayerCurrencyManager>().PayCost(upgradeCost, level);
+			GetComponentInParent<PlayerCurrencyComponent>().PayCost(upgradeCost, level);
 #endif
 			level++;
 		}
