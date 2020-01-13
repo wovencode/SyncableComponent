@@ -1,37 +1,30 @@
 // =======================================================================================
-// ISyncableStruct
+// Wovencore
 // by Weaver (Fhiz)
 // MIT licensed
-//
-// A simple interface shared by all SyncStructs
-//
 // =======================================================================================
 
+using System;
+using System.Collections.Generic;
 using UnityEngine;
 using wovencode;
 
-namespace wovencode
-{
+namespace wovencode {
+	
 	// ===================================================================================
-	// 
+	// DataCacheEntry
 	// ===================================================================================
-	public partial interface ISyncableStruct<T>
+	public partial class DataCacheEntry : BaseCacheEntry
 	{
-
-		T template { get; }
 		
-		void Update(GameObject player);
-		bool Valid { get; }
-		
-		bool CanRemove { get; }
-		void Remove(long _amount=1);
-		
-		void Reset();
-		
-		int level { get; }
+#if WOCO_CURRENCY
+		public long 	autoGenerateCurrencyCapacity 	= 0;
+		public long 	autoGenerateCurrencyProduction 	= 0;
+		public float 	autoGenerateCurrencyDuration 	= 0f;
+#endif
 		
 	}
-		
+
 }
 
 // =======================================================================================

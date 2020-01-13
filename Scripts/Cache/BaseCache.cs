@@ -1,37 +1,35 @@
 // =======================================================================================
-// ISyncableStruct
+// Wovencore
 // by Weaver (Fhiz)
 // MIT licensed
-//
-// A simple interface shared by all SyncStructs
-//
 // =======================================================================================
 
+using System;
+using System.Collections.Generic;
 using UnityEngine;
 using wovencode;
 
-namespace wovencode
-{
+namespace wovencode {
+	
 	// ===================================================================================
-	// 
+	// BaseCache
 	// ===================================================================================
-	public partial interface ISyncableStruct<T>
+	public abstract partial class BaseCache
 	{
-
-		T template { get; }
 		
-		void Update(GameObject player);
-		bool Valid { get; }
+		protected double cacheUpdateInterval = 1f;
+		protected double _timerCache = 0;
 		
-		bool CanRemove { get; }
-		void Remove(long _amount=1);
-		
-		void Reset();
-		
-		int level { get; }
+		// -------------------------------------------------------------------------------
+		// BaseCache (Constructor)
+		// -------------------------------------------------------------------------------
+		public BaseCache(double _cacheUpdateInterval)
+		{
+			cacheUpdateInterval = _cacheUpdateInterval;
+		}
 		
 	}
-		
+
 }
 
 // =======================================================================================

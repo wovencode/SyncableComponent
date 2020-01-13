@@ -32,7 +32,13 @@ namespace wovencode {
 		public int GetCapacity => capacity.Get(level);
 		
 		// -------------------------------------------------------------------------------
-		protected override void Start() {}
+		// Start
+		// @Server
+		// -------------------------------------------------------------------------------
+		[ServerCallback]
+		protected override void Start() {
+			base.Start();
+		}
 		
 		// -------------------------------------------------------------------------------
 		[Server]
@@ -47,7 +53,7 @@ namespace wovencode {
 		{
 			return (level < maxLevel
 #if WOCO_CURRENCY
-					&& GetComponentInParent<CurrencyManager>().CanPayCost(upgradeCost, level)
+					&& GetComponentInParent<PlayerCurrencyManager>().CanPayCost(upgradeCost, level)
 #endif
 					);
 		}
@@ -65,7 +71,7 @@ namespace wovencode {
 		protected virtual void UpgradeLevel()
 		{
 #if WOCO_CURRENCY
-			GetComponentInParent<CurrencyManager>().PayCost(upgradeCost, level);
+			GetComponentInParent<PlayerCurrencyManager>().PayCost(upgradeCost, level);
 #endif
 			level++;
 		}

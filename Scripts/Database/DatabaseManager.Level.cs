@@ -28,8 +28,8 @@ namespace wovencode
 		[DevExtMethods("Init")]
 		void Init_Level()
 		{
-			CreateTable<TableLevel>();
-        	CreateIndex(nameof(TableLevel), new []{"owner", "name"});
+			CreateTable<TablePlayerLevel>();
+        	CreateIndex(nameof(TablePlayerLevel), new []{"owner", "name"});
 		}
 		
 		// -------------------------------------------------------------------------------
@@ -42,7 +42,7 @@ namespace wovencode
 			
 			Component[] components = player.GetComponents<UpgradableManager>();
 			
-	   		foreach (TableLevel row in Query<TableLevel>("SELECT * FROM TableLevel WHERE owner=?", player.name))
+	   		foreach (TablePlayerLevel row in Query<TablePlayerLevel>("SELECT * FROM TablePlayerLevel WHERE owner=?", player.name))
 			{
 				foreach (Component component in components)
 	   			{
@@ -78,7 +78,7 @@ namespace wovencode
 	   			
 	   				UpgradableManager manager = (UpgradableManager)component;
 	   			
-	   				InsertOrReplace(new TableLevel{
+	   				InsertOrReplace(new TablePlayerLevel{
                 		owner 			= player.name,
                 		name 			= manager.GetType().ToString(),
                 		level 			= manager.level
@@ -95,7 +95,7 @@ namespace wovencode
 	   	[DevExtMethods("DeleteData")]
 	   	void DeleteData_Level(string _name)
 	   	{
-	   		Execute("DELETE FROM TableLevel WHERE owner=?", _name);
+	   		Execute("DELETE FROM TablePlayerLevel WHERE owner=?", _name);
 	   	}
 		
 		// -------------------------------------------------------------------------------

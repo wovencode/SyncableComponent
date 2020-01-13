@@ -1,5 +1,5 @@
 ﻿// =======================================================================================
-// Database - Level
+// Wovencore
 // by Weaver (Fhiz)
 // MIT licensed
 // =======================================================================================
@@ -18,9 +18,9 @@ namespace wovencode
 	{
 	
 		// -------------------------------------------------------------------------------
-		// TableExample
+		// TablePlayerLevel
 		// -------------------------------------------------------------------------------
-		partial class TableLevel
+		partial class TablePlayerLevel
 		{
 			public string 	owner 		{ get; set; }
 			public string 	name 		{ get; set; }

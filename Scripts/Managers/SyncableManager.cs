@@ -20,30 +20,41 @@ namespace wovencode {
 	{
 	
 		[Header("Caching")]
+		[Tooltip("How often the manager itself is updated (and all of its data, in seconds)")]
 		[Range(0.01f, 99)]
-		public float refreshInterval = 1f;
-		float _cacheTimer = 0;
+		public double managerUpdateInterval = 1f;
+		[Tooltip("How long cached data is kept (in seconds) before its re-calculated")]
+		[Range(0.01f, 99)]
+		public double cacheUpdateInterval = 1f;
+		
+		double _timerManager = 0;
+		
+		protected DataCache cacheData;
 		
 		public static GameObject localPlayer => ClientScene.localPlayer != null ? ClientScene.localPlayer.gameObject : null;
 		
 		// -------------------------------------------------------------------------------
 		// Start
+		// @Server
 		// -------------------------------------------------------------------------------
-		protected virtual void Start() {}
+		[ServerCallback]
+		protected virtual void Start() {
+			cacheData = new DataCache(cacheUpdateInterval);
+		}
 		
 		// -------------------------------------------------------------------------------
-		// Check
+		// CheckUpdateInterval
 		// Used to throttle calls to "Update" (similar to how we do it in "Wovencore UI")
 		// -------------------------------------------------------------------------------
-		protected bool Check => Time.time > _cacheTimer;
+		protected bool CheckUpdateInterval => Time.time > _timerManager;
 		
 		// -------------------------------------------------------------------------------
-		// Refresh
+		// RefreshUpdateInterval
 		// updates the cache timer interval
 		// -------------------------------------------------------------------------------
-		void Refresh()
+		void RefreshUpdateInterval()
 		{
-			_cacheTimer = Time.time + refreshInterval;
+			_timerManager = Time.time + managerUpdateInterval;
 		}
 		
 		// -------------------------------------------------------------------------------
@@ -52,14 +63,14 @@ namespace wovencode {
 		// -------------------------------------------------------------------------------
 		void Update()
 		{
-			if (Check)
+			if (CheckUpdateInterval)
 			{
 				if (isClient)
 					UpdateClient();
 				if (isServer)
 					UpdateServer();
 				
-				Refresh();
+				RefreshUpdateInterval();
 			}
 		}
 		
