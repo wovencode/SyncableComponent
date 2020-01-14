@@ -6,8 +6,8 @@ https://github.com/wovencode/
 
 Summary
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
-A generic Manager class, that allows to handle synchronized data (like inventories, skills
-or currencies) on a per player basis in a server-based multiplayer environment.
+A generic Component, that allows to handle synchronized data (like inventories, skills
+or currencies) on a per GameObject basis in a server-based multiplayer environment.
 
 Quickstart
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
@@ -24,7 +24,7 @@ Requirements
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 * Wovencore Tools (https://github.com/wovencode/woco-tools)
 * Wovencore Database (https://github.com/wovencode/woco-database)
-* Wovencore VirtualCurrencies ()
+* Optional: Wovencore VirtualCurrencies ()
 
 Contains Open-Source Code
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
