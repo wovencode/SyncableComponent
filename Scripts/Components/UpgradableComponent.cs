@@ -24,7 +24,7 @@ namespace wovencode {
 		public int level = 1;
 		public int maxLevel = 3;
 		public LinearGrowthInt capacity = new LinearGrowthInt{baseValue=99, bonusPerLevel=0};
-#if WOCO_CURRENCY
+#if wCURRENCY
 		public LevelCurrencyCost[] upgradeCost;
 #endif
 		
@@ -56,7 +56,7 @@ namespace wovencode {
 		public bool CanUpgradeLevel()
 		{
 			return (level < maxLevel
-#if WOCO_CURRENCY
+#if wCURRENCY
 					&& GetComponentInParent<PlayerCurrencyComponent>().CanPayCost(upgradeCost, level)
 #endif
 					);
@@ -74,7 +74,7 @@ namespace wovencode {
 		[Server]
 		protected virtual void UpgradeLevel()
 		{
-#if WOCO_CURRENCY
+#if wCURRENCY
 			GetComponentInParent<PlayerCurrencyComponent>().PayCost(upgradeCost, level);
 #endif
 			level++;

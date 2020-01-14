@@ -19,7 +19,7 @@ namespace wovencode
 		[DevExtMethods("Constructor")]
 		public static void Constructor_SyncableManager()
 		{
-			EditorTools.AddScriptingDefine("WOCO_SMANAGER");
+			EditorTools.AddScriptingDefine("wSYNCABLEM");
 		}
 
 	}

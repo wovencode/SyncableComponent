@@ -20,9 +20,8 @@ namespace wovencode {
 		[Tooltip("Allows to adjust the impact of this object (mostly for modifiers)")]
 		public int level;
 		
-		
+#if wCURRENCY
 		[Header("Active Modifiers")]
-#if WOCO_CURRENCY
     	public GenerateCurrencyModifier[] autoGenerateCurrencyModifier;
 #endif
 
