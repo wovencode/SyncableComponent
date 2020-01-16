@@ -1,5 +1,5 @@
 // =======================================================================================
-// Define
+// Wovencore
 // by Weaver (Fhiz)
 // MIT licensed
 // =======================================================================================
@@ -19,7 +19,7 @@ namespace wovencode
 		[DevExtMethods("Constructor")]
 		public static void Constructor_SyncableManager()
 		{
-			EditorTools.AddScriptingDefine("wSYNCABLEM");
+			EditorTools.AddScriptingDefine("wSYNCABLE");
 		}
 
 	}
