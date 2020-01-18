@@ -44,9 +44,9 @@ namespace wovencode {
 		// -------------------------------------------------------------------------------
         // BuildCache
         // -------------------------------------------------------------------------------
-		public static void BuildCache()
+		public static void BuildCache(bool forced=false)
 		{
-			if (_data == null)
+			if (_data == null || forced)
 				_data = new ArchetypeTemplateDictionary(ArchetypeTemplate._folderName);
 		}
 		
@@ -57,6 +57,9 @@ namespace wovencode {
 		{
 			if (_folderName != folderName)
 				_folderName = folderName;
+			
+			_data = null;
+			
 		}
 		
 		// -------------------------------------------------------------------------------
