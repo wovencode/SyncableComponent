@@ -7,9 +7,9 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
-using wovencode;
+using Wovencode;
 
-namespace wovencode {
+namespace Wovencode {
 	
 	// ===================================================================================
 	// DataCache

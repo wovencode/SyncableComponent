@@ -8,9 +8,9 @@ using System;
 using System.Text;
 using UnityEngine;
 using Mirror;
-using wovencode;
+using Wovencode;
 
-namespace wovencode {
+namespace Wovencode {
 
 	// ===================================================================================
 	// SyncableComponent
