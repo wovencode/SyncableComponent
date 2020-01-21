@@ -34,11 +34,11 @@ namespace Wovencode.Database
 		}
 		
 		// -------------------------------------------------------------------------------
-		// LoadDataWithPriority_Level
+		// LoadDataPlayerPriority_Level
 		// We have to load levels first, because inventory size (etc.) could depend on them
 		// -------------------------------------------------------------------------------
-		[DevExtMethods("LoadDataWithPriority")]
-		void LoadDataWithPriority_Level(GameObject player)
+		[DevExtMethods("LoadDataPlayerPriority")]
+		void LoadDataPlayerPriority_Level(GameObject player)
 		{
 			
 			Component[] components = player.GetComponents<UpgradableComponent>();
@@ -61,14 +61,14 @@ namespace Wovencode.Database
 		}
 		
 		// -------------------------------------------------------------------------------
-		// SaveData_Level
+		// SaveDataPlayer_Level
 		// -------------------------------------------------------------------------------
-		[DevExtMethods("SaveData")]
-		void SaveData_Level(GameObject player)
+		[DevExtMethods("SaveDataPlayer")]
+		void SaveDataPlayer_Level(GameObject player, bool isOnline)
 		{
 		
 			// you should delete all data of this player first, to prevent duplicates
-	   		DeleteData_Level(player.name);
+	   		DeleteDataPlayer_Level(player.name);
 	   		
 	   		Component[] components = player.GetComponents<UpgradableComponent>();
 	   		
@@ -91,10 +91,10 @@ namespace Wovencode.Database
 		}
 		
 		// -------------------------------------------------------------------------------
-	   	// DeleteData_Level
+	   	// DeleteDataPlayer_Level
 	   	// -------------------------------------------------------------------------------
-	   	[DevExtMethods("DeleteData")]
-	   	void DeleteData_Level(string _name)
+	   	[DevExtMethods("DeleteDataPlayer")]
+	   	void DeleteDataPlayer_Level(string _name)
 	   	{
 	   		Execute("DELETE FROM TablePlayerLevel WHERE owner=?", _name);
 	   	}
