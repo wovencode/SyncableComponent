@@ -43,7 +43,7 @@ namespace Wovencode.Database
 			
 			Component[] components = player.GetComponents<UpgradableComponent>();
 			
-	   		foreach (TablePlayerLevel row in Query<TablePlayerLevel>("SELECT * FROM TablePlayerLevel WHERE owner=?", player.name))
+	   		foreach (TablePlayerLevel row in Query<TablePlayerLevel>("SELECT * FROM "+nameof(TablePlayerLevel)+" WHERE owner=?", player.name))
 			{
 				foreach (Component component in components)
 	   			{
@@ -96,7 +96,7 @@ namespace Wovencode.Database
 	   	[DevExtMethods("DeleteDataPlayer")]
 	   	void DeleteDataPlayer_Level(string _name)
 	   	{
-	   		Execute("DELETE FROM TablePlayerLevel WHERE owner=?", _name);
+	   		Execute("DELETE FROM "+nameof(TablePlayerLevel)+" WHERE owner=?", _name);
 	   	}
 		
 		// -------------------------------------------------------------------------------
