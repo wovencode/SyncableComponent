@@ -17,11 +17,7 @@ namespace Wovencode {
 	public partial class DataCacheEntry : BaseCacheEntry
 	{
 		
-#if wCURRENCY
-		public long 	autoGenerateCurrencyCapacity 	= 0;
-		public long 	autoGenerateCurrencyProduction 	= 0;
-		public float 	autoGenerateCurrencyDuration 	= 0f;
-#endif
+		/* added via partial */
 		
 	}
 
