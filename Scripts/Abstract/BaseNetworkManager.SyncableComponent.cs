@@ -39,6 +39,7 @@ namespace Wovencode.Network
 
 			var guids = AssetDatabase.FindAssets("t:Prefab");
 			List<GameObject> toSelect = new List<GameObject>();
+			
 			spawnPrefabs.Clear();
 
 			foreach (var guid in guids)
@@ -48,14 +49,15 @@ namespace Wovencode.Network
 				
 				foreach (UnityEngine.Object obj in toCheck)
 				{
+				
 					var go = obj as GameObject;
+					
 					if (go == null)
-					{
 						continue;
-					}
-
-					NetworkIdentity comp = go.GetComponent<NetworkIdentity>();
-					if (comp != null && !comp.serverOnly)
+					
+					NetworkIdentity ni = go.GetComponent<NetworkIdentity>();
+					
+					if (ni != null && !ni.serverOnly)
 					{
 
 #if wSYNCABLE
@@ -65,7 +67,7 @@ namespace Wovencode.Network
 							toSelect.Add(go);
 						else if (Tools.ArrayContains(sortCategories, entityComponent.archeType.sortCategory))
 							toSelect.Add(go);
-						
+
 #else
 						toSelect.Add(go);
 #endif
