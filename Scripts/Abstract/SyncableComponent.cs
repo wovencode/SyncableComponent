@@ -25,6 +25,7 @@ namespace Wovencode {
 		double _timerManager = 0;
 		
 		protected DataCache cacheData;
+		protected string _name;
 		
 		public static GameObject localPlayer => ClientScene.localPlayer != null ? ClientScene.localPlayer.gameObject : null;
 		
@@ -35,6 +36,23 @@ namespace Wovencode {
 		[ServerCallback]
 		protected virtual void Start() {
 			cacheData = new DataCache(cacheUpdateInterval);
+		}
+		
+		// -------------------------------------------------------------------------------
+		// name
+		// -------------------------------------------------------------------------------
+		public new string name
+		{
+			get
+			{
+				if (string.IsNullOrWhiteSpace(_name))
+					_name = base.name;
+				return _name;
+			}
+			set
+			{
+				_name = base.name = value;
+			}
 		}
 		
 		// -------------------------------------------------------------------------------
