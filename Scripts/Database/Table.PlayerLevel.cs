@@ -12,24 +12,16 @@ using SQLite;
 namespace Wovencode.Database
 {
 
-	// ===================================================================================
-	// DatabaseManager
-	// ===================================================================================
-	public partial class DatabaseManager
+	// -------------------------------------------------------------------------------
+	// TablePlayerLevel
+	// -------------------------------------------------------------------------------
+	partial class TablePlayerLevel
 	{
-	
-		// -------------------------------------------------------------------------------
-		// TablePlayerLevel
-		// -------------------------------------------------------------------------------
-		partial class TablePlayerLevel
-		{
-			public string 	owner 		{ get; set; }
-			public string 	name 		{ get; set; }
-			public int 		level 		{ get; set; }
-		}
-	
+		public string 	owner 		{ get; set; }
+		public string 	name 		{ get; set; }
+		public int 		level 		{ get; set; }
 	}
-	
+
 	// -------------------------------------------------------------------------------
 	
 }

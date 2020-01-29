@@ -9,6 +9,7 @@ using System;
 using System.Text;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 using Mirror;
 using Wovencode;
 
@@ -24,12 +25,22 @@ namespace Wovencode {
 		[Header("Default Data")]
 		public ArchetypeTemplate archeType;
 		
+		public NavMeshAgent agent;
+		
 		// -------------------------------------------------------------------------------
 		// 
 		// -------------------------------------------------------------------------------
 		protected override void Start()
     	{
         	base.Start();
+		}
+		
+		// -------------------------------------------------------------------------------
+		// OnStartLocalPlayer
+		// -------------------------------------------------------------------------------
+		public override void OnStartLocalPlayer()
+    	{
+    		agent = GetComponent<NavMeshAgent>();
 		}
 		
 		// -------------------------------------------------------------------------------
