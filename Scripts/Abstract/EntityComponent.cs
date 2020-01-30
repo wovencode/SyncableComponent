@@ -12,6 +12,7 @@ using UnityEngine;
 using UnityEngine.AI;
 using Mirror;
 using Wovencode;
+using Wovencode.Network;
 
 namespace Wovencode {
 	
@@ -22,10 +23,16 @@ namespace Wovencode {
 	public abstract partial class EntityComponent : UpgradableComponent
 	{
 		
+		
+		[Header("Components")]
+		public NavMeshAgent agent;
+		public NetworkProximityChecker proxChecker;
+		public Collider collider;
+		
 		[Header("Default Data")]
 		public ArchetypeTemplate archeType;
 		
-		public NavMeshAgent agent;
+		
 		
 		// -------------------------------------------------------------------------------
 		// 

@@ -32,7 +32,7 @@ namespace Wovencode.Network
 		public void AutoRegisterSpawnablePrefabs()
 		{
 
-			var guids = AssetDatabase.FindAssets("t:Prefab");
+			var guids = AssetDatabase.FindAssets("t:Prefab", ProjectConfigTemplate.singleton.spawnablePrefabFolders);
 			List<GameObject> toSelect = new List<GameObject>();
 			
 			spawnPrefabs.Clear();
